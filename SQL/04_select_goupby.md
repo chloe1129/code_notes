@@ -6,7 +6,7 @@
 - 1개 이상의 column에 대해 grouping할 수 있다.
 - SELECT 절에는 GROUP BY에 쓰인 column만 사용가능하다.
 
-###### Person table
+##### Person table
 
 | id  |     name     | age |  money  | gender |  city  |
 | :-: | :----------: | :-: | :-----: | :----: | :----: |
@@ -18,8 +18,9 @@
 |  6  | Nayoung Kim  | 25  |  60000  |   0    | Seoul  |
 |  7  |  Jaeik Lee   | 27  |  5000   |   0    | Seoul  |
 
+###### `city` column을 그룹핑 해서 city가 같은 데이터들을 하나로 묶어버린다.
+
 ```
-`city` column을 그룹핑 해서 city가 같은 데이터들을 하나로 묶어버린다.
 SELECT Person.city from Person
 GROUP BY Person.city;
 
