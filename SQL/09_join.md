@@ -41,7 +41,7 @@ FROM 테이블이름1 {join_type} JOIN 테이블이름2 ON {join_condition}
 - inner join을 한 결과에 join 조건문을 충족시키는 데이터를 반환
 
 <center>
-<img src= "./img/inner_join.jpeg" width="400px"></img>
+<img src= "../img/inner_join.jpeg" width="400px"></img>
 </center>
 
 Users
