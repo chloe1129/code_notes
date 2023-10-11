@@ -23,9 +23,9 @@ WHERE Person.city = 'Ulsan';
 | :-: | :---------: | :-: | :---: | :----: | :---: |
 |  1  | Junkyu Park | 27  | 50000 |   0    | Ulsan |
 
-|
-|
-v
+|  
+|  
+v  
 
 ```
 SELECT city AS 도시, name AS 이름 FROM Person
