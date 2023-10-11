@@ -38,6 +38,7 @@ ORDER By Person.money DESC, Person.id;
 
 ```
 ORDER BY뒤에 컬럼명 대신 숫자를 쓸 수 있다.
+아래의 두 쿼리는 같은 결과를 나타낸다.
 
 SELECT Person.city, Person.id From Person
 ORDER By Person.money DESC, Person.id;
