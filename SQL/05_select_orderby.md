@@ -1,4 +1,4 @@
-### OERDER BY
+## OERDER BY
 
 - 데이터를 정렬
 - 기본적으로 오름차순(ASC)

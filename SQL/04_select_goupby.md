@@ -1,4 +1,4 @@
-### GROUP BY
+## GROUP BY
 
 - 테이블의 레코드를 grouping하기 위해 사용
 - 해당 절은 각각의 그룹에 대해 하나의 행을 만드는데 이 과정을 `aggregation`이라 부른다.

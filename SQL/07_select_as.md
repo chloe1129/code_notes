@@ -1,4 +1,4 @@
-### AS
+## AS
 
 - SELECT 문을 사용할 때, 결과로 나오는 column에 as 로 별칭을 줄 수 있다.
 
@@ -22,7 +22,7 @@ WHERE Person.city = 'Ulsan';
 | id  |    name     | age | money | gender | city  |
 | :-: | :---------: | :-: | :---: | :----: | :---: |
 |  1  | Junkyu Park | 27  | 50000 |   0    | Ulsan |
-  
+
 ⬇️
 
 ```
