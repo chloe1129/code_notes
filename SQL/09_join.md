@@ -166,13 +166,13 @@ FULL OUTE JOIN 테이블2 ON 테이블1.공통칼럼 = 테이블2.공통칼럼
 - 두 테이블의 모든 데이터 조합을 받아온다. 한쪽 테이블의 모든 행들과 다른 테이블의 모든 행을 조인시키는 기능을 한다.
 - 결과 개수는 두 테이블의 행의 개수를 곱한 개수
 
-Oders
+Orders
 | id | product |
 | :-: | :-----: |
 | 1 | 'Table' |
 | 2 | 'Chair' |
 
-        X
+X  
 
 Colors
 | id | color |
@@ -182,7 +182,7 @@ Colors
 
 ```
 SELECT * FROM Colors
-CROSS JOIN Oders;
+CROSS JOIN Orders;
 ```
 
 | id  | product | id  |  color  |
