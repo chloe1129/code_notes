@@ -44,18 +44,20 @@ FROM 테이블이름1 {join_type} JOIN 테이블이름2 ON {join_condition}
 <img src= "../img/inner_join.jpeg" width="400px"></img>
 </center>
 
-Users
-| id | name | age | gender |
-| :-: | :----------: | :-: | :----: |
-| 1 | Junkyu Park | 27 | 0 |
-| 2 | Sangheon Lee | 27 | 0 |
-| 3 | Taesung Kim | 27 | 0 |
+##### Users
 
-Wealth
-| user_id | money | city |
+| id  |     name     | age | gender |
+| :-: | :----------: | :-: | :----: |
+|  1  | Junkyu Park  | 27  |   0    |
+|  2  | Sangheon Lee | 27  |   0    |
+|  3  | Taesung Kim  | 27  |   0    |
+
+##### Wealth
+
+| user_id | money | city  |
 | :-----: | :---: | :---: |
-| 1 | 50000 | Ulsan |
-| 3 | 40000 | Daegu |
+|    1    | 50000 | Ulsan |
+|    3    | 40000 | Daegu |
 
 > 위와 같은 데이터가 있을 때, Users 테이블과 Wealth 테이블에서 user_id가 일치하는 row들에 대해 Inner Join을 수행한다.
 
@@ -71,3 +73,75 @@ Inner Join
 | :-: | :----------: | :-: | :----: | :-----: | :---: | :---: |
 | 1 | Junkyu Park | 27 | 0 | 1 | 50000 | Ulsan |
 | 3 | Taesung Kim | 27 | 0 | 3 | 40000 | Daegu |
+
+Wealth 테이블에 user_id가 2가 없기 때문에 제외됐다.
+이를 위해서는 Left Outer Join을 수행해야 한다.
+
+---
+
+### Outer Join - Left Outer Join
+
+- Join 수행시 먼저 표기된 좌측 테이블에 해당하는 데이터를 먼저 읽은 후, 우측 테이블에서 JOIN 대상 데이를 읽어온다.
+- 우측 테이블에서 만족하는 데이터기 없을 경우 `NULL`
+
+<center>
+<img src= "../img/left_outer_join.jpeg" width="400px"></img>
+</center>
+
+```
+SELECT Users.*, Wealth.*
+From Users LEFT JOIN Wealth
+ON Users.id = Wealth.user_id;
+```
+
+LEFT OUTER JOIN
+| id | name | age | gender | user_id | money | city |
+| :-: | :----------: | :-: | :----: | :-----: | :---: | :---: |
+| 1 | Junkyu Park | 27 | 0 | 1 | 50000 | Ulsan |
+| 2 | Sangheon Lee | 27 | 0 | NULL | NULL| NULL|
+| 3 | Taesung Kim | 27 | 0 | 3 | 40000 | Daegu |
+
+Wealth 테이블에 user_id가 2가 없기 때문에 LEFT JOIN의 결과로 NULL로 채워졌다.
+
+---
+
+### Outer Join - Right Outer Join
+
+- 상단의 LEFT JOIN의 반대이다.
+- Join 수행시 먼저 표기된 우측 테이블에 해당하는 데이터를 먼저 읽은 후, 좌측 테이블에서 JOIN 대상 데이를 읽어온다.
+- 좌측 테이블에서 만족하는 데이터기 없을 경우 `NULL`로 채워진다.
+- JOIN에 사용된 칼럼값에 대한 데이터가 여러개 있을 경우, 해당 레코드가 여러번 표시된다.
+
+<center>
+<img src= "../img/right_outer_join.jpeg" width="400px"></img>
+</center>
+
+##### Reviews
+
+| id  | book_id |     name     |   content    | rating |
+| :-: | :-----: | :----------: | :----------: | :----: |
+|  1  |    1    | Junkyu Park  |    'good'    |   4    |
+|  2  |    2    | Sangheon Lee |  'touched'   |   5    |
+|  3  |    2    | Taesung Kim  | 'not bad...' |   3    |
+
+##### Books
+
+| id  |      title       | author |
+| :-: | :--------------: | :----: |
+|  1  |  'Harry Potter'  |  'JK'  |
+|  2  | 'Strange Things' | 'idk'  |
+|  3  |  'Me After You'  | 'idk2' |
+
+```
+SELECT Revies.book_id, Reviews.content, Reviews.rating, Books.*
+FROM Reviews RIGHT JOIN Books
+ON Reviews.book_id = Books.id;
+```
+
+RIGHT OUTER JOIN
+| id | book_id | name | content | rating |id | title | author |
+| :-: | :-----: | :----------: | :----------: | :----: | :-: | :--------------: | :----: |
+| 1 | 1 | Junkyu Park | 'good' | 4 | 1 | 'Harry Potter' | 'JK' |
+| 2 | 2 | Sangheon Lee | 'touched' | 5 |2 | 'Strange Things' | 'idk' |
+| 3 | 2 | Taesung Kim | 'not bad...' | 3 |2 | 'Strange Things' | 'idk' |
+| NULL | NULL | NULL | NULL | NULL |3 | 'Me After You' | 'idk2' |
