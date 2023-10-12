@@ -236,5 +236,7 @@ SELECT users.full_name, books.title, checkouts.checkout_data
 
 > USING 조건절
 
-    Natural Join에서는 같은 이름을 가진 모든 칼럼들에 대해서 Join이 이루어지지만, Using 조건절을 이용하면 같은 이름을 가진 칼럼들 중, 특정 칼럼에 대해서만 선택적으로 Equi Join 실행 가능
+    Natural Join에서는 같은 이름을 가진 모든 칼럼들에 대해서 Join이 이루어지지만,
+    Using 조건절을 이용하면 같은 이름을 가진 칼럼들 중, 
+    특정 칼럼에 대해서만 선택적으로 Equi Join 실행 가능
     (단, MS SQL Server에서는 지원하지 않는다.)
