@@ -145,3 +145,96 @@ RIGHT OUTER JOIN
 | 2 | 2 | Sangheon Lee | 'touched' | 5 |2 | 'Strange Things' | 'idk' |
 | 3 | 2 | Taesung Kim | 'not bad...' | 3 |2 | 'Strange Things' | 'idk' |
 | NULL | NULL | NULL | NULL | NULL |3 | 'Me After You' | 'idk2' |
+
+---
+
+### Full Join
+
+- Full Outer Join 이라고도 표현한다.
+- 지원하지 않는 DB가 많기 때문에, UNION 함수를 사용해 Full Outer Join을 대체해 사용하는 경우가 많다.
+- 양쪽 테이블에 있는 데이터 중 빈 값은 모두 NULL로 채운 뒤 모든 데이터를 보여준다.
+
+```
+SELECT 칼럼1, 칼럼2 FROM 테이블1
+FULL OUTE JOIN 테이블2 ON 테이블1.공통칼럼 = 테이블2.공통칼럼
+```
+
+---
+
+### Cross Join (Caretesian Join)
+
+- 두 테이블의 모든 데이터 조합을 받아온다. 한쪽 테이블의 모든 행들과 다른 테이블의 모든 행을 조인시키는 기능을 한다.
+- 결과 개수는 두 테이블의 행의 개수를 곱한 개수
+
+Oders
+| id | product |
+| :-: | :-----: |
+| 1 | 'Table' |
+| 2 | 'Chair' |
+
+        X
+
+Colors
+| id | color |
+| :-: | :-----: |
+| 1 | 'Red' |
+| 2 | 'White' |
+
+```
+SELECT * FROM Colors
+CROSS JOIN Oders;
+```
+
+| id  | product | id  |  color  |
+| :-: | :-----: | :-: | :-----: |
+|  1  | 'Table' |  1  |  'Red'  |
+|  2  | 'Chair' |  2  | 'White' |
+|  3  | 'Table' |  1  |  'Red'  |
+|  4  | 'Chair' |  2  | 'White' |
+
+---
+
+### Self Join
+
+- 자기 자신과 조인한다.
+- 하나의 테이블을 여러번 복사해서 조인한다.
+- 자신이 갖고있는 칼럼을 다양하게 변형시켜 활욜할 경우에 자주 사용한다.
+
+```
+SELECT A.name. B.age From A,B
+```
+
+---
+
+### Multiple Joins
+
+- 2개 이상의 테이블을 조인
+- FIRST JOIN을 수행한 결과를 담은 virtual table 하나 생성한다.
+- 해당 virtual table과 두 번째 테이블인 books와의 Inner Join이 수행된다.
+- FROM이 필요 없는 이유는 직전의 virtual table을 자동으로 refer하기 때문이다.
+
+```
+SELECT users.full_name, books.title, checkouts.checkout_data
+    FROM users
+    INNER JOIN checkouts
+        ON users.id = checkouts.user_id
+    INNER JOIN books
+        ON books.id = checkouts.book_id
+```
+
+---
+
+### Natural Join
+
+- Equi Join의 또다른 종류이다.
+- 두 테이블 간의 동일한 이름을 갖는 모든 컬럼들에 대하 등가조인, `EQUI JOIN`을 수행한다.
+- 각 테이블의 row마다 같은 컬럼에, 같은 값이 있을 경우 해당 열을 Join한다.
+
+<center>
+<img src= "../img/natural_join.jpeg" width="400px"></img>
+</center>
+
+> USING 조건절
+
+    Natural Join에서는 같은 이름을 가진 모든 칼럼들에 대해서 Join이 이루어지지만, Using 조건절을 이용하면 같은 이름을 가진 칼럼들 중, 특정 칼럼에 대해서만 선택적으로 Equi Join 실행 가능
+    (단, MS SQL Server에서는 지원하지 않는다.)
