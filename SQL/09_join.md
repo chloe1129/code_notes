@@ -1,5 +1,9 @@
 ## JOIN
 
+<center>
+<img src= "../img/sql_joins.jpeg" width="400px"></img>
+</center>
+
 ### JOIN을 크게 구별하는 두가지 방법!
 
 > `JOIN` 조건으로 사용되는 연산자에 따른 분류
