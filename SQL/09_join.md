@@ -156,7 +156,7 @@ RIGHT OUTER JOIN
 
 ```
 SELECT 칼럼1, 칼럼2 FROM 테이블1
-FULL OUTE JOIN 테이블2 ON 테이블1.공통칼럼 = 테이블2.공통칼럼
+FULL OUTER JOIN 테이블2 ON 테이블1.공통칼럼 = 테이블2.공통칼럼
 ```
 
 ---
@@ -172,7 +172,7 @@ Orders
 | 1 | 'Table' |
 | 2 | 'Chair' |
 
-X  
+X
 
 Colors
 | id | color |
@@ -198,7 +198,7 @@ CROSS JOIN Orders;
 
 - 자기 자신과 조인한다.
 - 하나의 테이블을 여러번 복사해서 조인한다.
-- 자신이 갖고있는 칼럼을 다양하게 변형시켜 활욜할 경우에 자주 사용한다.
+- 자신이 갖고있는 칼럼을 다양하게 변형시켜 활용할 경우에 자주 사용한다.
 
 ```
 SELECT A.name. B.age From A,B
@@ -231,12 +231,12 @@ SELECT users.full_name, books.title, checkouts.checkout_data
 - 각 테이블의 row마다 같은 컬럼에, 같은 값이 있을 경우 해당 열을 Join한다.
 
 <center>
-<img src= "../img/natural_join.jpeg" width="400px"></img>
+<img src= "../img/natural_join.jpeg" width="500px"></img>
 </center>
 
 > USING 조건절
 
     Natural Join에서는 같은 이름을 가진 모든 칼럼들에 대해서 Join이 이루어지지만,
-    Using 조건절을 이용하면 같은 이름을 가진 칼럼들 중, 
+    Using 조건절을 이용하면 같은 이름을 가진 칼럼들 중,
     특정 칼럼에 대해서만 선택적으로 Equi Join 실행 가능
     (단, MS SQL Server에서는 지원하지 않는다.)
