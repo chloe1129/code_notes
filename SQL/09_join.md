@@ -1,7 +1,7 @@
 ## JOIN
 
 <center>
-<img src= "../img/sql_joins.jpeg" width="400px"></img>
+<img src= "../img/sql_joins.jpg" width="400px"></img>
 </center>
 
 ### JOIN을 크게 구별하는 두가지 방법!
