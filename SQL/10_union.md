@@ -37,6 +37,8 @@ SELECT country FROM table2
 |  '독일'  |
 | '스페인' |
 
+---
+
 > 중복을 허용하고 모든 값 추출하는 법, UNION ALL
 
 ```
